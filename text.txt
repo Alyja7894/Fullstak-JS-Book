@@ -1,0 +1,134 @@
+
+********* ADD BOOK *********
+
+Vamos a crear una web para agregar un libro con las siguientes caracteristicas:
+    - Insertar datos (conceptos , imagenen)
+    - CRUD
+    - DataBase 
+
+
+Visión de la aplicación 
+
+Empezaremos creando el servidor web con nodeJS
+Vamos a unirlo con un framework (Express) , con este podemos enviar y recibir datos.
+Y para guardar la información tenemos que almacenarlo en una base de datos MongoDB.
+
+¿Cómo desarrollamos el Navegador?
+Con un formulario , el usuario deberá cumplimentas los datos o haciendo operaciones crud.
+este dormulario tendrá conexión con el servidor según que petición necesite (El servidor controla si es valida o no la modificación). 
+El servidor se conecta a la base de datos para que realice la operación. 
+
+Para la vista de la web, usaremos WebPack
+
+Con el Backend vamos a desarrollar una API REST(Creación de URL), para que distintos servicios soliciten información al servidor
+ y luego solicite a la base de datos. 
+
+Para desplegar la aplicación, vamos a subirlo a HEROKU , y los datos estarán subidos en Mongo DB ATLAS.
+
+¿Como subumos el proyecto?
+Con GIT vamos a subirlo.
+
+
+*************************************
+
+Implantación del proyecto.
+
+Vamos Inicializar: 
+    npm init -Y
+
+Dependencias básicas:
+    npm i express   : servidor web
+    npm i mongoose  : módulo de conexión a la base de datos.
+    npm i morgan    : middleware de express
+    npm i multer    : Para subir imagenes, ya no lo subimos con código puro.
+    npm i dotenv    : TRabajar con variables de entorno, Contrasseñas ocultas.
+    npm i cross-env : definir en que entorno de producción estamos
+    npm i cors      : nos ayuda a enviar y recibir datos de forma más sencilla.
+    npm i nodemon -D: nos ayuda a no para el desarrollo y no en el proyecto "-D"
+    "-D" no production 
+    npm i WebPack-cli : complemento de Webpack
+    npm i WebPack   : Nos ayuda a preparar nuestro proyecto
+    npm i html-webpack-plugin : complemento html para webpack 
+    npm i css-loader : css
+    npm i style-loader : style
+    npm i mini-css-extract-plugin : minuficarlo 
+    npn i webpack-dev-server : para trabajar en desarollo
+    npm i timeago.js -D
+
+
+Creamos en 2 archivos "backend" y "frontend"
+
+En el backend Creamos 2 carpetas:
+    Routes : Definimos  las rutas o URL del servidor.
+    Models : Definimos los moelos de la base de datos.
+
+Modulo File System , nos permite copiar archivos, leer archivo, etc. 
+Ya que tembien soporta promesas
+ npm i fs-extra   
+
+***** nodemon ***
+Configuración en package.jon
+ "scripts": {
+    "dev" : "nodemon backend/index.js",
+
+    para ejecutar con nodemon : npm run dev
+
+**** morgan ***
+app.use(morgan('dev'));
+Si entramos al aweb y damos F5, por la consola nos aparece lo siguientes
+
+GET / 404 6.476 ms - 139
+
+Nos muestra las peticiones que nos va llegando por consola, con tiempo.
+
+
+
+******** Postman **********
+envia peticiones HTTP
+
+******* FrontEnd **********
+
+Webpack : Herramienta que toma todos tus archivos y lo prepara para producuión
+
+Module Bundle -> Empaquetador de modulo.
+
+
+
+
+***** Ejecutamos
+ejecutamos sin la cartepta frontend
+"dev": "cross-env NODE_ENV=development nodemon backend/index.js --ignore frontend"
+
+
+
+**** Pasar de desarollo a produccion ****
+Ejecutamos el servidor de desarollo : 
+    :npm run server:dev
+cada verz que hagamos un cambio, lo veremos el desarrollo , 
+
+    -> Pasamos de desarrollo a produccion
+    : npm run build
+
+
+---CSS flat UI color
+https://flatuicolors.com/
+
+
+-- Subimos el proyecto a GIT 
+
+entramos al proyecto , Inicializar GIT      
+: git init -> incializamos git
+: git status : miramos el estado , si esta en rojo es porque no se ha subidos
+: git add .  : subimos todo el proyeto.
+:*** Revisar el git ignore para que no se suban ficheros importantes.
+
+
+****** Acciones de HEROKU *****
+
+Al ingresar el proyecto a heroku, lo que va hacer es instalar lo siguiente por orden:
+    1. npm install
+    2. postinstall  "npm run build"
+    3. npm start 
+
+
+

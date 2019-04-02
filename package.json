@@ -1,0 +1,45 @@
+{
+  "name": "a01_add_book",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev_antiguo_01": "nodemon backend/index.js",
+
+    "comentario_02": "si vamos a ejecutar en entorno de desarrollo",
+    "dev": "cross-env NODE_ENV=development nodemon backend/index.js --ignore frontend",
+
+    "comentario_03": "Si vamos a ejecutar en modo de producción",
+    "start": "cross-env NODE_ENV=production node backend/index.js",
+    "comentario_04": "Gracias a cross-env , vamos a deinir en el entormno en que que estas",
+
+    "postinstall": "npm run build",
+
+    "build": "cross-env NODE_ENV=production webpack",
+    "server:dev": "webpack-dev-server --inline --port 8086 --host 192.168.0.33 --content-base"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "cross-env": "^5.2.0",
+    "dotenv": "^7.0.0",
+    "express": "^4.16.4",
+    "fs-extra": "^7.0.1",
+    "mongoose": "^5.4.20",
+    "morgan": "^1.9.1",
+    "multer": "^1.4.1"
+  },
+  "devDependencies": {
+    "css-loader": "^2.1.1",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.5.0",
+    "nodemon": "^1.18.10",
+    "style-loader": "^0.23.1",
+    "timeago.js": "^4.0.0-beta.2",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0",
+    "webpack-dev-server": "^3.2.1"
+  }
+}
